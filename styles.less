@@ -38,9 +38,22 @@
 .text-gradient {
   background: -webkit-linear-gradient(@github-dark, @lime-green);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient > * {
   color: @github-light
+}
+
+.bg-darker {
+  background-color: @github-dark;
+}
+
+.card:hover {
+  transform: scale(1.8);
+  z-index: 1;
+  align-self: center;
+  align-content: center;
+  position: center;
 }
