@@ -13,6 +13,6 @@ git clone https://github.com/XENONMC-DEV/tools >/dev/null 2>&1 # clone just inca
 git submodule add https://github.com/XENONMC-DEV/PHP-MySQLi-Query-Builder >/dev/null 2>&1
 git clone https://github.com/XENONMC-DEV/PHP-MySQLi-Query-Builder >/dev/null 2>&1 # clone just incase there is an error
 git submodule add https://github.com/XENONMC-DEV/XFORUM >/dev/null 2>&1
-git clone https://github.com/XENONMC-DEV/XFORUM >/dev/null 2>&1        # clone just incase there is an error
-ls -d | while read -r output; do cd $output && git pull && cd ..; done # for each directory in the current directory, change into that directory and run `git pull`
+git clone https://github.com/XENONMC-DEV/XFORUM >/dev/null 2>&1     # clone just incase there is an error
+ls | while read -r output; do cd $output && git pull && cd ..; done # for each directory in the current directory, change into that directory and run `git pull`
 echo -e "${GREEN}Completed!${NC}"
