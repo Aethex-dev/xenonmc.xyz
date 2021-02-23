@@ -1,3 +1,4 @@
+# E Lucas Burlingham Mon Feb 22 07:57:55 PM EST 2021
 #!/bin/bash
 # Set colors
 Yellow='\033[1;33m'
