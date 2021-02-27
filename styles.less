@@ -50,9 +50,15 @@
 
 .bg-darker {
   background-color: @github-dark;
+  color: @github-light;
 }
 
-.card:hover {
+.bg-dark {
+  background-color: @github-dark;
+  color: @github-light;
+}
+
+.card-animated:hover {
   transform: scale(1.3);
   z-index: 1;
   align-self: center;
@@ -61,17 +67,35 @@
   border: @github-light;
 }
 
-.card {
+.card-animated {
   transition-duration: 300ms;
   -o-transition-duration: 300ms;
 }
 
-.jumbotron {
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  background-color: @github-dark;
-}
-
 .centered {
   position: center;
+  text-align: center;
+}
+
+.padded {
+  padding-bottom:2rem;
+}
+
+.card-body > hr {
+  width: 100%;
+  padding: none;
+  margin: none;
+} 
+
+.text-success {
+  color: @lime-green;
+}
+
+.bg-success {
+  background-color: @lime-green;
+}
+
+small {
+  font-style: italic;
+  font-size: x-small;
 }
