@@ -1,0 +1,2 @@
+# xenonmc.xyz
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d2506db8035c4557b5e9eb43995839b5)](https://app.codacy.com/gh/XENONMC-DEV/xenonmc.xyz?utm_source=github.com&utm_medium=referral&utm_content=XENONMC-DEV/xenonmc.xyz&utm_campaign=Badge_Grade_Settings)
