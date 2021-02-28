@@ -1,14 +1,14 @@
-//  Define basic color scheme 
-@discord-purple: #7289DA;
-@discord-dark: #2C2F33;
-@github-light: #FFFFFF;
-@github-dark: #23272A;
+// Define basic color scheme
+@discord-purple: #7289da;
+@discord-dark: #2c2f33;
+@github-light: #ffffff;
+@github-dark: #23272a;
 @icon-black: #181818;
 @double-size: 2rem;
 @morethan-double: 2.5rem;
-@lime-green: #55FF55;
+@lime-green: #55ff55;
 @light-grey-1: #383838;
-@tart-orange: #F25757;
+@tart-orange: #f25757;
 
 // text styles
 .text-gradient {
@@ -19,14 +19,14 @@
 }
 
 .text-gradient > * {
-  color: @github-light
+  color: @github-light;
 }
 
 .text-discord {
   color: @discord-purple;
 }
 
-.text-discord:hover {
+.text-discord :hover {
   color: @discord-purple;
   background-color: @discord-dark;
 }
@@ -35,7 +35,7 @@
   color: @github-light;
 }
 
-.text-github:hover {
+.text-github :hover {
   color: @github-light;
   background-color: @discord-dark;
 }
@@ -48,21 +48,35 @@
   color: @discord-purple;
 }
 
-// backgrounds 
+// backgrounds
 .bg-carbon {
-    background-color: rgb(116, 116, 116);
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1)),
-    linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
-    linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+  background-color: rgb(116, 116, 116);
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0) 80%,
+      rgba(0, 0, 0, 1)
+    ),
+    linear-gradient(
+      45deg,
+      black 25%,
+      transparent 25%,
+      transparent 75%,
+      black 75%,
+      black
+    ),
+    linear-gradient(
+      45deg,
+      black 25%,
+      transparent 25%,
+      transparent 75%,
+      black 75%,
+      black
+    ),
     linear-gradient(to bottom, rgb(8, 8, 8), rgb(40, 40, 40));
-    background-size: 100% 100%,
-    10px 10px,
-    10px 10px,
-    10px 5px;
-    background-position: 0px 0px,
-    0px 0px,
-    5px 5px,
-    0px 0px;
+  background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
+  background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
 }
 
 .bg-success {
@@ -70,25 +84,25 @@
 }
 
 .bg-dark {
-  background-color: @icon-black  !important;
+  background-color: @icon-black !important;
   color: @github-light;
 }
 
-// positioning 
+// positioning
 .centered {
   position: center;
   text-align: center;
 }
 
 .padding-bottom {
-  padding-bottom:2rem;
+  padding-bottom: 2rem;
 }
 
 .padding-up {
   padding-top: 3rem;
 }
 
-// elements 
+// elements
 .card-body > hr {
   width: 100%;
   padding: none;
@@ -109,9 +123,14 @@ ul.no-style {
   text-decoration: none;
 }
 
-.navbar-brand>img {
+.navbar-brand > img {
   width: @morethan-double;
   height: @morethan-double;
+}
+
+.card-animated {
+  transition-duration: 300ms;
+  -o-transition-duration: 300ms;
 }
 
 .card-animated:hover {
@@ -122,12 +141,6 @@ ul.no-style {
   position: center;
   border: @github-light;
 }
-
-.card-animated {
-  transition-duration: 300ms;
-  -o-transition-duration: 300ms;
-}
-
 
 footer.padding-up {
   padding-top: 4rem;
