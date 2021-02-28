@@ -1,3 +1,4 @@
+//  Define basic color scheme 
 @discord-purple: #7289DA;
 @discord-dark: #2C2F33;
 @github-light: #FFFFFF;
@@ -9,34 +10,7 @@
 @light-grey-1: #383838;
 @tart-orange: #F25757;
 
-
-.text-discord:hover {
-  color: @discord-purple;
-  background-color: @discord-dark;
-}
-
-.text-discord {
-  color: @discord-purple;
-}
-
-.text-github:hover {
-  color: @github-light;
-  background-color: @discord-dark;
-}
-
-.text-github {
-  color: @github-light;
-}
-
-.bg-dark {
-  background-color: @icon-black !important;
-}
-
-.navbar-brand > img {
-  width: @morethan-double;
-  height: @morethan-double;
-}
-
+// text styles
 .text-gradient {
   background: -webkit-linear-gradient(@github-dark, @lime-green);
   -webkit-background-clip: text;
@@ -48,14 +22,96 @@
   color: @github-light
 }
 
-.bg-darker {
-  background-color: @github-dark;
+.text-discord {
+  color: @discord-purple;
+}
+
+.text-discord:hover {
+  color: @discord-purple;
+  background-color: @discord-dark;
+}
+
+.text-github {
   color: @github-light;
 }
 
-.bg-dark {
-  background-color: @github-dark;
+.text-github:hover {
   color: @github-light;
+  background-color: @discord-dark;
+}
+
+.text-success {
+  color: @lime-green !important;
+}
+
+.text-purple {
+  color: @discord-purple;
+}
+
+// backgrounds 
+.bg-carbon {
+    background-color: rgb(116, 116, 116);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1)),
+    linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+    linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+    linear-gradient(to bottom, rgb(8, 8, 8), rgb(40, 40, 40));
+    background-size: 100% 100%,
+    10px 10px,
+    10px 10px,
+    10px 5px;
+    background-position: 0px 0px,
+    0px 0px,
+    5px 5px,
+    0px 0px;
+}
+
+.bg-success {
+  background-color: @lime-green;
+}
+
+.bg-dark {
+  background-color: @icon-black  !important;
+  color: @github-light;
+}
+
+// positioning 
+.centered {
+  position: center;
+  text-align: center;
+}
+
+.padding-bottom {
+  padding-bottom:2rem;
+}
+
+.padding-up {
+  padding-top: 3rem;
+}
+
+// elements 
+.card-body > hr {
+  width: 100%;
+  padding: none;
+  margin: none;
+}
+
+.card-dark {
+  background-color: @github-dark;
+}
+
+small {
+  font-style: italic;
+  font-size: x-small;
+}
+
+ul.no-style {
+  list-style: none;
+  text-decoration: none;
+}
+
+.navbar-brand>img {
+  width: @morethan-double;
+  height: @morethan-double;
 }
 
 .card-animated:hover {
@@ -72,30 +128,7 @@
   -o-transition-duration: 300ms;
 }
 
-.centered {
-  position: center;
-  text-align: center;
-}
 
-.padded {
-  padding-bottom:2rem;
-}
-
-.card-body > hr {
-  width: 100%;
-  padding: none;
-  margin: none;
-} 
-
-.text-success {
-  color: @lime-green;
-}
-
-.bg-success {
-  background-color: @lime-green;
-}
-
-small {
-  font-style: italic;
-  font-size: x-small;
+footer.padding-up {
+  padding-top: 4rem;
 }
