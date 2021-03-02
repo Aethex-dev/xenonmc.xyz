@@ -28,8 +28,6 @@ BASH:
             }
             ?>
         </pre>
-    <hr>
-    <a class="btn btn-success" href="/index.html">Back to Home</a>
     <script src="/upup.js"></script>
     <script>
         UpUp.start({
