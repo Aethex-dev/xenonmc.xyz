@@ -12,4 +12,4 @@ git clone https://github.com/XENONMC-DEV/PHP-MySQLi-Query-Builder >/dev/null 2>&
 git submodule add https://github.com/XENONMC-DEV/XFORUM >/dev/null 2>&1
 git clone https://github.com/XENONMC-DEV/XFORUM >/dev/null 2>&1                                 # clone just incase there is an error
 ls | while read -r output; do cd $output && git pull | grep -v "Not a directory" && cd ..; done # for each directory in the current directory, change into that directory and run `git pull`
-echo -e "Completed!"
+echo "Completed!"
