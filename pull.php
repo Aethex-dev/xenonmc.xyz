@@ -18,8 +18,7 @@ echo $_SERVER["PWD"];
 </head>
 
 <body class="bg-dark">
-    <div class="jumbotron bg-dark">
-        <pre class="text-light">
+    <pre class="text-light">
 BASH:
             <?php
             if (isset($output)) {
@@ -29,7 +28,6 @@ BASH:
             }
             ?>
         </pre>
-    </div>
     <hr>
     <a class="btn btn-success" href="/index.html">Back to Home</a>
     <script src="/upup.js"></script>
