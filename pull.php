@@ -19,10 +19,7 @@ echo $_SERVER["PWD"];
 
 <body class="bg-dark">
     <div class="jumbotron bg-dark">
-        <h4 class="text-success font-monospace">Terminal Output:</h4>
-        <hr>
-        <div class="padding-top padding-bottom">
-            <pre class="text-light">
+        <pre class="text-light">
 BASH:
             <?php
             if (isset($output)) {
@@ -32,7 +29,6 @@ BASH:
             }
             ?>
         </pre>
-        </div>
     </div>
     <hr>
     <a class="btn btn-success" href="/index.html">Back to Home</a>
