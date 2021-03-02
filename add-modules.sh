@@ -1,8 +1,8 @@
 output=$(git pull)
 echo "$output"
-output=$(git submodule add https://github.com/XENONMC-DEV/XFRAME >/dev/null 2>&1)
+output=$(git submodule add https://github.com/XENONMC-DEV/XFRAME)
 echo "$output"
-output=$(git submodule add https://github.com/XENONMC-DEV/XFRAME >/dev/null 2>&1)
+output=$(git submodule add https://github.com/XENONMC-DEV/XFRAME)
 git clone https://github.com/XENONMC-DEV/XFRAME >/dev/null 2>&1
 git submodule add https://github.com/XENONMC-DEV/XFRAME-ROUTER >/dev/null 2>&1
 git clone https://github.com/XENONMC-DEV/XFRAME-ROUTER >/dev/null 2>&1
