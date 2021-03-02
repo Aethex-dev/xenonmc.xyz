@@ -19,7 +19,6 @@ echo $_SERVER["PWD"];
 
 <body class="bg-dark">
     <pre class="text-light">
-BASH:
             <?php
             if (isset($output)) {
                 echo $output;
