@@ -2,7 +2,6 @@
 $output = shell_exec("./add-modules.sh");
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,10 +21,19 @@ $output = shell_exec("./add-modules.sh");
     <div class="jumbotron bg-dark">
         <h4 class="text-success font-monospace">Terminal Output:</h4>
         <hr>
-        <pre>
-            <?php echo $output ?>
+        <pre class="text-light">
+BASH:
+            <?php
+            if (isset($output)) {
+                echo $output;
+            } else {
+                echo "<h6> ERROR: NO DATA RETURNED!<h6>";
+            }
+            ?>
         </pre>
     </div>
+    <hr>
+    <button class="btn btn-success centered" href="/index.html">Back to Home</button>
     <script src="/upup.js"></script>
     <script>
         UpUp.start({
