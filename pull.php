@@ -17,7 +17,7 @@ echo $_SERVER["PWD"];
     <title>XenonMC Development: GIt Pull</title>
 </head>
 
-<body class="bg-dark">
+<body class="bg-black">
     <pre class="text-light">
             <?php
             if (isset($output)) {
