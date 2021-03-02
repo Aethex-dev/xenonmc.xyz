@@ -1,6 +1,5 @@
 <?php
 $output = shell_exec("./add-modules.sh");
-echo $_SERVER["PWD"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
