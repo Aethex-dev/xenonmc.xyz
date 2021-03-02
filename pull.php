@@ -1,7 +1,6 @@
 <?php
 $output = shell_exec("./add-modules.sh");
-
-
+echo $_SERVER["PWD"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +21,8 @@ $output = shell_exec("./add-modules.sh");
     <div class="jumbotron bg-dark">
         <h4 class="text-success font-monospace">Terminal Output:</h4>
         <hr>
-        <pre class="text-light">
+        <div class="padding-top padding-bottom">
+            <pre class="text-light">
 BASH:
             <?php
             if (isset($output)) {
@@ -32,9 +32,10 @@ BASH:
             }
             ?>
         </pre>
+        </div>
     </div>
     <hr>
-    <a class="btn btn-success centered" href="/index.html">Back to Home</a>
+    <a class="btn btn-success" href="/index.html">Back to Home</a>
     <script src="/upup.js"></script>
     <script>
         UpUp.start({
