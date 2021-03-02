@@ -14,7 +14,7 @@ echo $_SERVER["PWD"];
     <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <title>XenonMC Development: Github Pull</title>
+    <title>XenonMC Development: GIt Pull</title>
 </head>
 
 <body class="bg-dark">
