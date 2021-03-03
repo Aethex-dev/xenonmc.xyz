@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" async>
     <!-- load sheet then javascript -->
-    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+    <link rel="stylesheet/less" type="text/css" href="/assets/css/styles.less" />
     <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
     <title>XForums Development Team</title>
-    <link rel="shortcut icon" href="/logo.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/logo.webp" type="image/x-icon">
 </head>
 
 <body class="bg-carbon">
     <section id="navbar">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-                <img src="/logo.webp" alt="XENONMC Logo: Green Lightning Bolt on a Black background">
+                <img src="/assets/images/logo.webp" alt="XENONMC Logo: Green Lightning Bolt on a Black background">
                 XForum</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#topNav"
                 aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
         </nav>
     </section>
     <!-- Terminal Output Modal -->
-    <div id="jsInsertModal"></div>
+    <div id="jsInsertTerminal"></div>
     <section id="jumbotron-welcome">
         <div class="jumbotron jumbotron-fluid bg-dark">
             <div class="container">
@@ -123,7 +123,7 @@
         </div>
         <div class="padding-bottom"></div>
     </section>
-    <section id="progress">
+    <section id="progress padding-bottom">
         <div class="jumbotron-fluid bg-dark">
             <br>
             <h1 class="centered">XForums Series Progress</h1>
@@ -196,6 +196,35 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="goals">
+        <div class="jumbotron bg-secondary">
+            <h1>Our Goals: <kbd>v1.1_alpha</kbd></h1>
+            <div class="rounded-black">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <pre class="bg-dark">
+
+
+    Hey everyone! This is the first post ever! 
+    I would like to run some tests.
+    Obviously, there is some text here. There is a line break. There is some more text.
+    Here is a link: (https://github.com)[Github.com]. Our goal is to make it so you only see: Github.com, and not what I
+    said before.
+
+
+    Well, au revoir peeps!
+
+    Lucas Burlingham,
+          Database, Server, and Project Manager, as well as Frontend developer.
+
+                        </pre>
                         </div>
                     </div>
                 </div>
@@ -298,7 +327,9 @@
             channel: '800154146434056192',
         })
     </script>
-    <script src="/upup.js"></script>
+    <script src="/assets/js/upup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js
+"></script>
     <!-- Statuspage  -->
     <script src="https://rpl357kc8bzh.statuspage.io/embed/script.js"></script>
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.js"></script>
@@ -330,13 +361,13 @@
     <script>
         function addOutput() {
             console.log("Adding Inner");
-            $("#jsInsertModal").html(
+            $("#jsInsertTerminal").html(
                 '<iframe src="/pull.php" frameborder="0" width="100%"></iframe><button onclick="removeTerminal()" class="btn btn-secondary" href="#">Close</button>'
             );
         }
 
         function removeTerminal() {
-            $("#jsInsertModal").remove();
+            $("#jsInsertTerminal").remove();
         }
     </script>
 </body>
