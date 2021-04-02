@@ -1,0 +1,89 @@
+<div class="obj-profile-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">{profile['username']}</p>
+        </div>
+    </if>
+
+    <div class="top-wrapper">
+
+        <div class="column-wrapper">
+        
+            <img class="avatar" draggable="false" src="data:image/png;base64,{profile['avatar']}">
+        </div>
+
+        <div class="group">
+
+            <div class="columns-wrapper">
+
+                <div class="column-wrapper">
+        
+                    <p class="title">@reputation @</p>
+
+                    <p class="value">{profile['rep']['reputation']}</p>
+                </div>
+
+                <div class="column-wrapper">
+        
+                    <p class="title">@threads @</p>
+
+                    <p class="value">{profile['rep']['threads']}</p>
+                </div>
+
+                <div class="column-wrapper">
+        
+                    <p class="title">REPUTATION</p>
+
+                    <p class="value">903k</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="columns-footer-wrapper">
+        
+                <div class="stat">
+                
+                    <p class="title">Joined: </p>
+                    <p class="value">!!date 'd / m / Y', (profile['joined']) !!</p>
+                </div>
+
+                <div class="stat">
+                
+                    <p class="title">Joined: </p>
+                    <p class="value">3/10/2021 9:17am</p>
+                </div>
+
+                <div class="stat">
+                
+                    <p class="title">Joined: </p>
+                    <p class="value">3/10/2021 9:17am</p>
+                </div>
+
+                <div class="stat">
+                
+                    <p class="title">Joined: </p>
+                    <p class="value">3/10/2021 9:17am</p>
+                </div>
+
+                <p class="rank">MEMBER</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-wrapper">
+    
+        <a class="link" href="/user/view/%%url(2)%%/about">@about @</a>
+        <a class="link" href="#">@recent-activity @</a>
+        <a class="link" href="#">ABOUT</a>
+        <a class="link" href="/account">@edit @</a>
+    </div>
+
+    <div class="bottom-wrapper">
+    
+        <p class="text">XENONMC. Minecraft Minigames Network. XENONMC is an empowering community pushed to its limits! We make sure everything is bug-free and that you make the most out of your time here. We range from custom software to Minecraft Minigames. And so all in all, we hope you make the most of your time here.</p>
+    </div>
+</div>

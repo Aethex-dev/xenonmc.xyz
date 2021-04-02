@@ -5,7 +5,7 @@ namespace apps\Forums;
 class Threads
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -82,5 +82,3 @@ class Threads
         ));
     }
 }
-
-$app = new Threads($this);

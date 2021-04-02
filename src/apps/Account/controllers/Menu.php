@@ -5,7 +5,7 @@ namespace apps\Account;
 class Menu
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -37,5 +37,3 @@ class Menu
         ));
     }
 }
-
-$app = new Menu($this);

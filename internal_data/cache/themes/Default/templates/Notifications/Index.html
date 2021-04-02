@@ -1,0 +1,32 @@
+<div class="obj-table-list-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@table-title @</p>
+        </div>
+    </if>
+
+    <table class="body-wrapper">
+
+        <foreach (notifications) as (notification)>
+
+            <tr class="row-wrapper">
+
+                <td class="content vertical">
+    
+                    <a href="{notification['url']}" class="title">{notification['name']}</a>
+                    <span class="message">{notification['message']}</span>
+    
+                    <span class="footer">!!date 'h-m-s', (notification['time']) !!</span>
+                </td>
+            </tr>
+        </foreach>
+    </table>
+
+    <div class="footer-wrapper sticky">
+
+        <a class="button" href="/notifications/all">@table-view-all-button @</a>
+    </div>
+</div>

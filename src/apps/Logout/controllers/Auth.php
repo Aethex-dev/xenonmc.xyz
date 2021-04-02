@@ -5,7 +5,7 @@ namespace apps\Logout;
 class Auth
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // authentication
@@ -74,5 +74,3 @@ class Auth
         }
     }
 }
-
-$app = new Auth($this);

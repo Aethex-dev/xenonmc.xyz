@@ -30,13 +30,7 @@
 
         <div class="header-wrapper">
 
-            <p class="title">{thread['name']}</p>
-
-            <if (thread[ 'locked'])=='true'>
-
-                <i class="icon fal fa-lock"></i>
-
-            </if>
+            <p class="title">!!replace '-', ' ', (thread['name']) !!</p>
 
             <p class="value">!!date 'm-d-Y H:i:s', (thread['createdate']) !!</p>
 
@@ -68,10 +62,13 @@
 
         <button class="button">
 
-            LIKE
-
+            <i class="fal fa-angle-up icon"></i>
         </button>
 
+        <button class="button">
+
+            <i class="fal fa-angle-down icon"></i>
+        </button>
     </div>
 
     <p class="replies_label">
@@ -81,13 +78,10 @@
         <if (replies_total)==1>
 
             @reply @
-
             <else>
 
                 @replies @
-
         </if>
-
     </p>
 
     <div class="replies-wrapper">
@@ -99,7 +93,6 @@
                 <div class="header-wrapper">
 
                     <p class="value">!!date 'm-d-Y H:i:s', (reply['createdate']) !!</p>
-
                 </div>
 
                 <div class="content">
@@ -113,21 +106,13 @@
                         <div class="rank" style="background: {reply['user']['rank']['color']}30; color: {reply['user']['rank']['color']}">
 
                             {reply['user']['rank']['name']}
-
                         </div>
-
                     </div>
-
                     <div class="text markdown">{reply['data']}</div>
-
                 </div>
-
             </div>
-
         </foreach>
-
     </div>
-
 </div>
 
 <form data-ajax="true" spellcheck="false" autocomplete="off" data-id="reply" data-layout="modal" action="%%url_root%%forums/thread/" class="obj-form-wrapper">

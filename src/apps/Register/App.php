@@ -154,7 +154,7 @@ class App
      * 
      */
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // wait before call
@@ -219,7 +219,7 @@ class App
 
             $auth_url = $mvc->config['url']['root'] . '/register/verify/' . $auth[3] . '/' . $auth[4] . '/' . $auth[5] . '/' . $input['username'];
 
-            echo "You are not redirecting, email servers down, use this link instead: <a href='$auth_url'>VERIFY</a>";
+            redirect($auth_url);
             return;
 
             redirect("/register/verifynotice/" . $input['username'] . '/' . $input['email']);
@@ -235,5 +235,3 @@ class App
         ));
     }
 }
-
-$app = new App($this, $this->conn);

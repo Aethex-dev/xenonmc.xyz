@@ -5,7 +5,7 @@ namespace apps\Search;
 class App
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -20,5 +20,3 @@ class App
         ));
     }
 }
-
-$app = new App($this);

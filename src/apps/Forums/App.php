@@ -5,7 +5,7 @@ namespace apps\Forums;
 class App
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -87,5 +87,3 @@ class App
         ));
     }
 }
-
-$app = new App($this);

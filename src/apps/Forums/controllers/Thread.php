@@ -103,7 +103,7 @@ class Thread
         return false;
     }
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -141,6 +141,22 @@ class Thread
 
                 // fetch data
                 while ($thread_data = $this->db->fetch()) {
+
+                    // get subforum data
+                    $this->db->select()
+                        ->table($mvc->config['prefix'] . 'forums_subforums')
+                        ->where('of = ? AND name = ? LIMIT 1')
+                        ->column("*")
+                        ->param(array(
+
+                            $auth['topic'],
+                            $auth['subforum']
+
+                        ))
+                        ->types("ss")
+                        ->execute($this->conn);
+
+                    $subforum_data = $this->db->fetch();
 
                     // define input val
                     $input['reply'] = $_POST['reply'];
@@ -188,7 +204,103 @@ class Thread
                         ->types("ssssss")
                         ->execute($this->conn);
 
-                    reload();
+                    // get thread replies
+                    $replies_per_page = 10;
+
+                    $this->db->count()
+                        ->table($mvc->config['prefix'] . "forums_replies")
+                        ->where('of = ? AND thread_id = ? AND thread_name = ?')
+                        ->param(array(
+
+                            $auth['topic'] . '/' . $auth['subforum'],
+                            $auth['thread_id'],
+                            $auth['thread_name']
+
+                        ))
+                        ->types("sss")
+                        ->execute($this->conn);
+
+                    $replies_total = $this->db->result;
+                    $replies_total = mysqli_fetch_array($replies_total)[0];
+                    $replies_total += 1;
+
+                    $total_pages = ceil($replies_total / $replies_per_page);
+
+                    // add to authors notifications
+                    if ($thread_data['user'] != $mvc->global['user_uuid']) {
+
+                        // get thread author
+                        $this->db->select()
+                            ->table($mvc->config['prefix'] . 'users') 
+                            ->column("*")
+                            ->where('uuid = ?')
+                            ->param(array(
+
+                                $thread_data['user']
+
+                            ))
+                            ->types("s")
+                            ->execute($this->conn);
+
+                        $thread_author = $this->db->fetch();
+
+                        $this->db->insert()
+                            ->table($mvc->config['prefix'] . 'users_notifications')
+                            ->column('time, name, url, message, user')
+                            ->param(array(
+
+                                time(),
+                                $auth['thread_name'],
+                                '/forums/thread/' . strtolower($auth['topic']) . '/' . strtolower($auth['subforum']) . '/' . $auth['thread_id'] . '/' . $auth['thread_name'] . '/' . $total_pages,
+                                $this->lang_data['someone-replied-to-thread'],
+                                $thread_data['user']
+
+                            ))
+                            ->types("sssss")
+                            ->execute($this->conn);
+
+                        $this->db->update()
+                            ->table($mvc->config['prefix'] . 'users')
+                            ->set('notifications = ?')
+                            ->where('uuid = ?')
+                            ->param(array(
+
+                                $thread_author['notifications'] + 1,
+                                $thread_data['user']
+
+                            ))
+                            ->types("ss")
+                            ->execute($this->conn);
+                    }
+
+                    $this->db->update()
+                        ->table($mvc->config['prefix'] . 'forums_subforums')
+                        ->set('messages = ?')
+                        ->where('of = ? AND name = ?')
+                        ->param(array(
+
+                            $subforum_data['messages'] + 1,
+                            $auth['topic'],
+                            $auth['subforum']
+
+                        ))
+                        ->types("sss")
+                        ->execute($this->conn);
+
+                    $this->db->update()
+                        ->table($mvc->config['prefix'] . 'forums_threads')
+                        ->set('replies = ?')
+                        ->where('name = ? AND id = ? AND of = ?')
+                        ->param(array(
+
+                            $thread_data['replies'] + 1,
+                            $auth['thread_name'],
+                            $auth['thread_id'],
+                            $auth['topic'] . '/' . $auth['subforum']
+
+                        ))
+                        ->types("ssss")
+                        ->execute($this->conn);
 
                     return true;
                 }
@@ -360,8 +472,8 @@ class Thread
                 if (isset($mvc->global['user_uuid']))
                     if ($user_data['uuid'] == $mvc->global['user_uuid']) {
 
-                    $is_author_viewing_thread = true;
-                }
+                        $is_author_viewing_thread = true;
+                    }
 
                 // render page
                 $mvc->parse_page($mvc->router->get_request_app(), "Thread", $_POST['layout'], "Forums-thread.json", array(
@@ -399,5 +511,3 @@ class Thread
         return false;
     }
 }
-
-$app = new Thread($this);

@@ -1,0 +1,82 @@
+<div class="obj group row space-between align-center">
+
+    <div class="obj-pagei-wrapper">
+
+        <if '%%url(4)%%' !="">
+
+            <if '%%url(4)%%' *greater* (total_pages)>
+
+                <set next_page to (total_pages) />
+            <else>
+
+                <set next_page to %%url(4)%% + 1 />
+            </if>
+
+            <set prev_page to %%url(4)%% - 1 />
+
+            <if (prev_page) < 1>
+
+                <set prev_page to 1 />
+            </if>
+
+            <else>
+
+                <if (total_pages) !=1>
+
+                    <if '%%url(4)%%' *greater* (total_pages)>
+
+                        <set next_page to (total_pages) />
+                    <else>
+
+                        <set next_page to %%url(4)%% + 1 />
+                    </if>
+                <else>
+
+                    <set next_page to 1 />
+                </if>
+
+                <set prev_page to 1 />
+        </if>
+
+        <a href="/notifications/all/{prev_page}" class="arrow_r"><i class="fal fa-angle-left"></i></a>
+        <a href="/notifications/all/1" class="left num">1</a>
+        <a href="/notifications/all/2" class="num">2</a>
+        <a href="/notifications/all/3" class="num">3</a>
+        <a href="/notifications/all/4" class="num">4</a>
+        <a href="/notifications/all/5" class="right num">...</a>
+        <a href="/notifications/all/{next_page}" class="arrow_l"><i class="fal fa-angle-right"></i></a>
+    </div>
+</div>
+
+<div class="obj-table-list-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@table-title @</p>
+        </div>
+    </if>
+
+    <table class="body-wrapper">
+
+        <foreach (notifications) as (notification)>
+
+            <tr class="row-wrapper">
+
+                <td class="content vertical">
+    
+                    <a href="{notification['url']}" class="title">{notification['name']}</a>
+                    <span class="message">{notification['message']}</span>
+    
+                    <span class="footer">!!date 'h-m-s', (notification['time']) !!</span>
+                </td>
+            </tr>
+        </foreach>
+    </table>
+
+    <div class="footer-wrapper sticky">
+
+        <a class="button" href="/notifications/all">@table-view-all-button @</a>
+    </div>
+</div>

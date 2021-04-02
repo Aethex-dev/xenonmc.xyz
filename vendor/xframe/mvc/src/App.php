@@ -48,16 +48,16 @@ class App
     public $theme;
 
     /** 
-     * construct dependencies
-     * 
-     */
-
-    /** 
      * global site vars
      * 
      */
 
     public $global = [];
+
+    /** 
+     * construct dependencies
+     * 
+     */
 
     function __construct()
     {
@@ -183,7 +183,11 @@ class App
                 'layout' => $_POST['layout']
     
             ));
+
+            return false;
         }
+
+        eval('$app_cntlr = new apps\\' . $this->router->get_request_app() . '\\' . ucfirst($this->router->get_request_action('App')) . '($this); $app_cntlr->onReady($this);');
     }
 
     /** 

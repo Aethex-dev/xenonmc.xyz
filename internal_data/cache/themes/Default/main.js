@@ -63,10 +63,14 @@ class p_modal {
         var modal = $(".modal-wrapper");
         var modal_overlay = $(".modal-overlay");
 
-        modal.animate({ top: '150vh', opacity: '0' }, 500, 'easeOutCubic');
-        modal_overlay.fadeOut(300);
+        if($(modal).is(":visible")) {
 
-        this.caller.classList.remove('focused');
+            modal.animate({ top: '60vh', opacity: '0' }, 500, 'easeOutCubic');
+            modal.fadeOut(0);
+            modal_overlay.fadeOut(300);
+
+            this.caller.classList.remove('focused');
+        }
 
     }
 
@@ -94,7 +98,7 @@ class p_modal {
                 ajaxloader.hide_ajaxloader();
 
                 modal.show();
-                modal.animate({ top: '20vh' }, 0);
+                modal.animate({ top: '40vh' }, 0);
                 modal.animate({ top: '50vh', opacity: '1' }, 500, 'easeOutCubic');
                 modal_overlay.fadeIn(300);
 
@@ -129,8 +133,11 @@ class p_emodal {
         var modal = $(".emodal-wrapper");
         var modal_overlay = $(".emodal-overlay");
 
-        modal.animate({ top: '150vh', opacity: '0' }, 500, 'easeOutCubic');
-        modal_overlay.fadeOut(300);
+        if($(modal).is(":visible")) {
+
+            modal.animate({ top: '150vh', opacity: '0' }, 500, 'easeOutCubic');
+            modal_overlay.fadeOut(300);
+        }
 
     }
 
@@ -218,13 +225,12 @@ $(document).ready(function() {
 
     });
 
-    $("a").click(function(event) {
+    $("body").on('click', 'a', function(event) {
 
         if (this.classList.contains('focused')) {
 
             this.classList.remove('focused');
             modal.close_modal();
-
         } else {
 
             if (this.dataset.modal == "true") {
@@ -234,28 +240,28 @@ $(document).ready(function() {
                 if (typeof this.dataset.layout == 'undefined' || this.dataset.layout == 'undefined') {
 
                     var layout = "modal";
-
                 } else {
 
                     var layout = this.dataset.layout;
-
                 }
 
                 modal.open_modal($(this).prop("href"), this, layout);
                 this.classList.add('focused');
-
             } else {
 
-                ajaxloader.show_ajaxloader();
+                event.preventDefault();
+                update_url($(this).attr("href"), function() {
 
-                $(".preloader-wrapper").fadeIn(300);
+                    ajaxloader.show_ajaxloader();
+                },
+                
+                function() {
 
+                    ajaxloader.hide_ajaxloader();
+                });
             }
-
         }
-
     });
-
 });
 
 $(document).on('keydown', function(event) {
@@ -263,24 +269,6 @@ $(document).on('keydown', function(event) {
     if (event.key == "Escape") {
 
         modal.close_modal();
-    }
-});
-
-// banner
-$(window).scroll(function() {
-
-    if($(window).scrollTop() < $(".banner-wrapper").height()) {
-
-        $(".banner-wrapper img").css("margin-top", $(window).scrollTop());
-        $(".banner-wrapper .logo").css({
-        
-        "margin-top": $(window).scrollTop(),
-        "opacity": 100 - $(window).scrollTop() + "%"
-    
-        });
-
-        $(".banner-wrapper .overlay-wrapper").css("opacity", 70 - $(window).scrollTop() + "%");
-        $(".banner-wrapper img").css("width", $(window).scrollTop() / 10 + 100 + "%");
     }
 });
 
@@ -313,7 +301,7 @@ listenCookieChange(({ oldValue, newValue }) => {
 // preloader
 $(document).ready(function() {
 
-    $(".preloader-wrapper").fadeOut(300);
+    ajaxloader.hide_ajaxloader();
 
     // wysiwyg editor
     $(".row-wrapper .content").on('click', '.textarea button.copy', function () {
@@ -370,4 +358,52 @@ $(document).ready(function() {
         }
     });
 
+    // file upload
+$('input[type=file]').change(function() {
+
+    var outer = $(this).parent();
+    var file = $(this)[0].files[0].name;
+
+    $(this).prev(outer).text(file);
+});
+
+});
+
+$(document).ready(function() {
+    
+    $("button").each(function(key, value) {
+
+        console.log(key);
+
+        const tooltip = $("button:nth-child(" + key + 1 +")").find(".tooltip");
+        const button = $(tooltip).parent();
+
+        // Pass the button, the tooltip, and some options, and Popper will do the
+        // magic positioning for you:
+        const popperInstance = Popper.createPopper(button, tooltip);
+    });
+
+    $("body").on('mouseenter', 'button', function() {
+
+        var button = this;
+        var tooltip = $(button).find('.tooltip');
+
+        tooltip.fadeIn(300);
+    });
+
+    $("body").on('mouseleave', 'button', function() {
+
+        var button = this;
+        var tooltip = $(button).find('.tooltip');
+
+        tooltip.fadeOut(300);
+    });
+
+    $("body").on('click', 'button', function() {
+
+        var button = this;
+        var tooltip = $(button).find('.tooltip');
+
+        tooltip.fadeOut(300);
+    });
 });

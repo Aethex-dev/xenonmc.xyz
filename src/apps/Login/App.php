@@ -125,10 +125,15 @@ class App
      * 
      */
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
-        sleep(1);
+        // check if user logged in
+        if($mvc->globa['loggedIn'] == true) {
+
+            redirect("/");
+            return false;
+        }
 
         if (ajaxID == 'login') {
 
@@ -207,7 +212,7 @@ class App
                             ->types("sss")
                             ->execute($this->conn);
 
-                        redirect("/");
+                        reload();
                     }
                 } else {
 
@@ -231,5 +236,3 @@ class App
         ));
     }
 }
-
-$app = new App($this);

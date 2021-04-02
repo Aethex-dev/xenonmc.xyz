@@ -5,6 +5,101 @@
 
 class p_navigation {
 
+    /**
+     * constructor
+     * 
+     */
+
+    constructor() {
+
+        Notification.requestPermission().then(function(result) {
+
+            console.log(result);
+        });
+
+        // notifications
+        var source = new EventSource("/notifications/checkupdates.sse");
+        source.onmessage = function(event) {
+
+            var noti_bell = $("body > nav.subnav-wrapper > div.buttons-wrapper > button.button.notifications-bell");
+
+            console.log("NOTIFICATION: " + event.data);
+
+            if(event.data == 'stop') {
+
+                this.stop_notifications = true;
+            } else {
+
+                this.stop_notifications = false;
+            }
+
+            if(event.data == 'new') {
+
+                noti_bell.addClass("alert");
+                var notification = new Notification('XENONMC', { body: 'You have new notifications', icon: '/internal_data/cache/themes/Default/favicon.png' });
+            } else {
+
+                noti_bell.removeClass("alert");
+            }
+        }
+
+        console.log(this.stop_notifications);
+        source.onerror = function(err) {
+
+            if(this.stop_notifications == false) {
+
+                console.error("EventSource failed:", err);
+                source = null;
+
+                // notifications
+                source = new EventSource("/notifications/checkupdates.sse");
+                source.onmessage = function(event) {
+
+                    var noti_bell = $("body > nav.subnav-wrapper > div.buttons-wrapper > button.button.notifications-bell");
+
+                    console.log("NOTIFICATION: " + event.data);
+                if(event.data == 'new') {
+
+                        noti_bell.addClass("alert");
+                        var notification = new Notification('XENONMC', { body: 'You have new notifications', icon: '/internal_data/cache/   themes/Default/favicon.png' });
+                    } else {
+
+                        noti_bell.removeClass("alert");
+                    }
+                }
+            } else {
+
+                source.close();
+            }
+        }   
+
+        // urls
+        var url = window.location.href.split("/");
+        $(".links-wrapper .link[href='/" + url[3] + "/']").css({color: "#55ff55", opacity: '100%', 'border-bottom': '2px solid #55ff55'});
+
+        window.addEventListener('popstate', function (e) {
+
+            if(e.state){
+
+                var url = window.location.href.split("/");
+
+                $(".links-wrapper .link").prop('style', '');
+                $(".links-wrapper .link[href='/" + url[3] + "/']").css({color: "#55ff55", opacity: '100%', 'border-bottom': '2px solid #55ff55'});
+            }
+        });
+
+        $("a").click(function() {
+
+            setInterval(() => {
+
+                var url = window.location.href.split("/");
+
+                $(".links-wrapper .link").prop('style', '');
+                $(".links-wrapper .link[href='/" + url[3] + "/']").css({color: "#55ff55", opacity: '100%', 'border-bottom': '2px solid #55ff55'}); 
+            }, 2000);
+        });
+    }
+
     /** 
      * open side bar navigation drawer
      * 

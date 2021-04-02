@@ -20,6 +20,7 @@ class ComposerStaticInit8e42dca6c551dc9ee4f505a5bcd13d64
         'x' => 
         array (
             'xframe\\Router\\' => 14,
+            'xframe\\Rate\\' => 12,
             'xframe\\Mvc\\' => 11,
             'xframe\\Database\\' => 16,
             'xframe\\Cache\\' => 13,
@@ -50,11 +51,9 @@ class ComposerStaticInit8e42dca6c551dc9ee4f505a5bcd13d64
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+            'PragmaRX\\Google2FA\\' => 19,
+            'ParagonIE\\ConstantTime\\' => 23,
             'PHPMailer\\PHPMailer\\' => 20,
-        ),
-        'M' => 
-        array (
-            'MyApp\\' => 6,
         ),
         'H' => 
         array (
@@ -70,6 +69,10 @@ class ComposerStaticInit8e42dca6c551dc9ee4f505a5bcd13d64
         'xframe\\Router\\' => 
         array (
             0 => __DIR__ . '/..' . '/xframe/router/src',
+        ),
+        'xframe\\Rate\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/xframe/rate/src',
         ),
         'xframe\\Mvc\\' => 
         array (
@@ -143,13 +146,17 @@ class ComposerStaticInit8e42dca6c551dc9ee4f505a5bcd13d64
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+        'PragmaRX\\Google2FA\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pragmarx/google2fa/src',
+        ),
+        'ParagonIE\\ConstantTime\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-        ),
-        'MyApp\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
         'Hhxsv5\\SSE\\' => 
         array (

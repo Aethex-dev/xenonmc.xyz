@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'xframe\\Router\\' => array($vendorDir . '/xframe/router/src'),
+    'xframe\\Rate\\' => array($vendorDir . '/xframe/rate/src'),
     'xframe\\Mvc\\' => array($vendorDir . '/xframe/mvc/src'),
     'xframe\\Database\\' => array($vendorDir . '/xframe/database/src'),
     'xframe\\Cache\\' => array($vendorDir . '/xframe/cache/src'),
@@ -25,8 +26,9 @@ return array(
     'Ratchet\\RFC6455\\' => array($vendorDir . '/ratchet/rfc6455/src'),
     'Ratchet\\' => array($vendorDir . '/cboden/ratchet/src/Ratchet'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'PragmaRX\\Google2FA\\' => array($vendorDir . '/pragmarx/google2fa/src'),
+    'ParagonIE\\ConstantTime\\' => array($vendorDir . '/paragonie/constant_time_encoding/src'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
-    'MyApp\\' => array($baseDir . '/src'),
     'Hhxsv5\\SSE\\' => array($vendorDir . '/hhxsv5/php-sse/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
 );

@@ -86,10 +86,10 @@ function process_errors(array $errors)
 /** 
  * reload page
  * 
-*/
+ */
 
-function reload() {
+function reload()
+{
 
     echo "<script>location.reload();</script>";
-
 }

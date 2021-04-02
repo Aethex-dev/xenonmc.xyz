@@ -9,6 +9,24 @@
     <link rel="stylesheet/less" type="text/css" href="%%root%%main.less" />
     <link rel="stylesheet/less" type="text/css" href="%%root%%obj.less" />
 
+    <!-- emojis -->
+    <link rel="stylesheet/less" type="text/css" href="%%root%%emojis.less" />
+
+    <style>
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+            transition-duration: 300ms;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
     <!-- less.js -->
     <script>
         less = {
@@ -26,13 +44,22 @@
 
     <script src="%%root%%less.js"></script>
 
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/jpg" href="%%root%%favicon.png"/>
+
     <!-- jquery -->
     <script src="%%root%%jquery.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
+    <!-- popper.js -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+    <script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
+
     <!-- javascript -->
     <script src="%%root%%main.js"></script>
     <script class="ajax" src="%%root%%ajax.js"></script>
+    <script src="%%root%%js/update-url.js"></script>
 
     <!-- icon pack -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css">
@@ -43,11 +70,16 @@
 
     <!-- page meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#55ff55">
+    <meta content="XENONMC" property="og:site_name">
+    <meta content="Minecraft Minigames Network." type="description">
+    <meta content="Minecraft Minigames Network." property="og:description">
+
     <title>
 
         <if '%%url(0)%%'=='/'>
 
-            XENONMC
+            {this->mvc->config['site-config']['name']}
 
         <else>
 
@@ -63,19 +95,13 @@
 
 <body>
 
-    <!-- preloader -->
-
-    <div class="preloader-wrapper">
-
-        <div class="loader"></div>
-
-    </div>
+    <iframe class="external_data" style="display: none;"></iframe>
 
     <!--   ajax progress   -->
 
     <div class="ajaxloader-wrapper">
 
-        <div class="bar"></div>
+        <div class="bar on"></div>
 
     </div>
 
@@ -93,7 +119,7 @@
 
             <a class="logo" href="%%url_root%%">
 
-                XENONMC
+                {this->mvc->config['site-config']['name']}
 
             </a>
 
@@ -145,7 +171,7 @@
 
                 </button>
 
-                <button data-modal="true" data-href="%%url_root%%notifications" class="button">
+                <button class="button notifications-bell" data-modal="true" data-href="%%url_root%%notifications" class="button">
 
                     <i class="icon fal fa-bell"></i>
 
@@ -251,11 +277,11 @@
 
         <div class="banner-wrapper">
 
-            <img class="image" draggable="false" src="%%root%%banner.png">
+            <img class="image" draggable="false" src="%%root%%banner.webp">
 
             <div class="overlay-wrapper"></div>
 
-            <h1 class="logo">XENONMC</h1>
+            <h1 class="logo">{this->mvc->config['site-config']['name']}</h1>
 
         </div>
 
@@ -348,49 +374,46 @@
 
         <div class="blocks-wrapper">
 
-            <div class="block-wrapper">
+            <foreach (this->mvc->config['site-config']['footer']) as (footer_block)>
 
-                <h1>ABOUT US</h1>
+                <if (footer_block['type']) == 'text'>
+            
+                    <div class="block-wrapper">
 
-                <p>XENONMC.  Minecraft Minigames Network.  XENONMC is an empowering community pushed to its limits!  We make sure everything is bug-free and that you make the most out of your time here.  We range from custom software to Minecraft Minigames.  And so all in all, we hope you make the most of your time here.</p>
-            </div>
+                        <h1>{footer_block['title']}</h1>
 
-            <div class="block-wrapper">
+                        <p>{footer_block['text']}</p>
+                    </div>
+                </if>
 
-                <h1>QUICK LINKS</h1>
+                <if (footer_block['type']) == 'links'>
 
-                <ul class="links-wrapper">
+                    <div class="block-wrapper">
 
-                    <li class="link-wrapper"><a href="/">HOME</a></li>
-                    <li class="link-wrapper"><a href="/forums">FORUMS</a></li>
-                    <li class="link-wrapper"><a href="/leaderboards">LEADERBOARDS</a></li>
-                    <li class="link-wrapper"><a href="/shop">SHOP</a></li>
-                </ul>
-            </div>
+                        <h1>{footer_block['title']}</h1>
 
-            <div class="block-wrapper">
+                        <ul class="links-wrapper">
 
-                <h1>USER MENU</h1>
+                            <foreach (footer_block['links']) as (footer_block_link)>
 
-                <ul class="links-wrapper">
-
-                    <li class="link-wrapper"><a data-modal="true" href="/account/menu">USER MENU</a></li>
-                    <li class="link-wrapper"><a data-modal="false" href="/account">SETTINGS</a></li>
-                    <li class="link-wrapper"><a data-modal="false" href="/admin">ADMIN PANEL</a></li>
-                    <li class="link-wrapper"><a data-modal="false" href="/logout/auth/{user_endActionAuth}">LOGOUT</a></li>
-                </ul>
-            </div>
+                                <li class="link-wrapper"><a href="{footer_block_link['url']}">{footer_block_link['title']}</a></li>
+                            </foreach>
+                        </ul>
+                    </div>
+                </if>
+            </foreach>
         </div>
+
 
         <div class="copyright-wrapper">
 
-            <span>
+            <div>
 
-                <p>COPYRIGHT 2017 - 2021 XENONMC. All Rights Reserved. <a data-modal="true"
+                <p>COPYRIGHT 2017 - 2021 {this->mvc->config['site-config']['name']}. All Rights Reserved. <a data-modal="true"
                         href="terms-of-service">Terms Of Service</a>. <a data-modal="true" href="privacy-policy">Privacy
                         Policy</a>.</p>
 
-            </span>
+            </div>
         </div>
     </footer>
 
@@ -468,7 +491,7 @@
 
         <p>Sorry, but your device is too small to view this page properly</p>
 
-    <div>
+    </div>
 
     <!-- END device too small -->
 

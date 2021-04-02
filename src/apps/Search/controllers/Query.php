@@ -5,7 +5,7 @@ namespace apps\Search;
 class Query
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -27,7 +27,3 @@ class Query
         return false;
     }
 }
-
-$app = new Query($this);
-
-

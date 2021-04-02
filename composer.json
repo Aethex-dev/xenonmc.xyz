@@ -9,11 +9,6 @@
         }
     ],
     "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "MyApp\\": "src"
-        }
-    },
     "require": {
         "cboden/ratchet": "dev-master",
         "hbattat/verifyemail": "dev-master",
@@ -23,6 +18,8 @@
         "xframe/database": "dev-main",
         "xframe/cache": "dev-main",
         "erusev/parsedown": "dev-master",
-        "phpmailer/phpmailer": "dev-master"
+        "phpmailer/phpmailer": "dev-master",
+        "xframe/rate": "dev-main",
+        "pragmarx/google2fa": "8.x-dev"
     }
 }

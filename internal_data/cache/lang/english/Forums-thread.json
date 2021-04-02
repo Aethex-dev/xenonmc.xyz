@@ -13,6 +13,7 @@
     "error-reply-not-logged-in": "You must be logged in to your account to reply to a thread.  Please login and try again.",
     "error-empty-reply": "Reply message cannot be empty.  Please enter a message and try again.",
     "error-reply-bad-length": "Your reply must be between 15 and 5000 characters long.  Please add or remove to your reply and try again.",
+    "someone-replied-to-thread": "Someone replied to your thread.",
     "error-reply-attachments-too-large": "Your attachments must be under 16mb large.  Please remove some files and try again.",
     "error-thread-locked": "Sorry, but this thread is not accepting further replies."
 }

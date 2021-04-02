@@ -5,7 +5,7 @@ namespace apps\Account;
 class Avatar
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -14,7 +14,7 @@ class Avatar
         $this->conn = $mvc->conn;
 
         if (ajaxID == 'avatar') {
-
+            
             // convert image format
             $avatar = base64_encode(file_get_contents($_FILES['avatar']['tmp_name']));
 
@@ -45,5 +45,3 @@ class Avatar
         ));
     }
 }
-
-$app = new Avatar($this);

@@ -124,6 +124,7 @@ class View {
         $template = preg_replace('~\!\!caps (.+?) \!\!~',"<?php echo strtoupper($1); ?>", $template);
         $template = preg_replace('~\!\!lower (.+?) \!\!~',"<?php echo strtolower($1); ?>", $template);
         $template = preg_replace('~\!\!date (.+?), (.+?) \!\!~',"<?php echo date($1, $2); ?>", $template);
+        $template = preg_replace('~\!\!replace (.+?), (.+?), (.+?) \!\!~',"<?php echo str_replace($1, $2, $3); ?>", $template);
         $template = preg_replace('~\^isset (.+?) \^~',"isset($1)", $template);
 
         // var modifiers
@@ -132,6 +133,12 @@ class View {
         // if statement parse
         $template = preg_replace('~\<if (.+?)\>~', '<?php if($1) { ?>', $template);
         $template = preg_replace('~\</if\>~', '<?php } ?>', $template);
+
+        // switch statement parse
+        $template = preg_replace('~\<switch (.+?)\>~', '<?php switch ($1) { ?>', $template);
+        $template = preg_replace('~\</switch (.+?)\>~', '<?php } ?>', $template);
+        $template = preg_replace('~\<case (.+?)\>~', '<?php case $1: ?>', $template);
+        $template = preg_replace('~\</case\>~', '<?php break; ?>', $template);
 
         // else statement parse
         $template = preg_replace('~\<else\>~', '<?php } else { ?>', $template);

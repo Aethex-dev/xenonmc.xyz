@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => '5a3ee5ecabd9b04c7ed1dddd2b86b3a009ef8ddd',
+    'reference' => NULL,
     'name' => 'xenonmc/xframe',
   ),
   'versions' => 
@@ -68,6 +68,15 @@
       ),
       'reference' => '5aee564f273427e1740d29ecf1af8930919c387f',
     ),
+    'paragonie/constant_time_encoding' => 
+    array (
+      'pretty_version' => 'v2.4.0',
+      'version' => '2.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c',
+    ),
     'phpmailer/phpmailer' => 
     array (
       'pretty_version' => 'dev-master',
@@ -77,6 +86,16 @@
         0 => '9999999-dev',
       ),
       'reference' => '4a08cf4cdd2c38d12ee2b9fa69e5d235f37a6dcb',
+    ),
+    'pragmarx/google2fa' => 
+    array (
+      'pretty_version' => '8.x-dev',
+      'version' => '8.9999999.9999999.9999999-dev',
+      'aliases' => 
+      array (
+        0 => '9999999-dev',
+      ),
+      'reference' => 'c6d560d4f3be2310b276a1ead697ae971a7de90b',
     ),
     'psr/http-message' => 
     array (
@@ -228,12 +247,12 @@
     ),
     'xenonmc/xframe' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '5a3ee5ecabd9b04c7ed1dddd2b86b3a009ef8ddd',
+      'reference' => NULL,
     ),
     'xframe/cache' => 
     array (
@@ -264,6 +283,16 @@
         0 => '9999999-dev',
       ),
       'reference' => 'dcf242e50a45092cbe377246d392f86ebee98933',
+    ),
+    'xframe/rate' => 
+    array (
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
+      'aliases' => 
+      array (
+        0 => '9999999-dev',
+      ),
+      'reference' => '21ebb0b3db797b81060fb4c2daf90d3e6722422a',
     ),
     'xframe/router' => 
     array (

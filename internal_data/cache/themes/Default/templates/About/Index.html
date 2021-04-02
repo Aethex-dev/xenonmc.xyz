@@ -1,6 +1,19 @@
-<form data-ajax="true" action="about" method="POST">
+<div class="obj-prompt-wrapper">
 
-    <input type="text" name="yn" placeholder="Your Name" />
-    <input type="submit" data-id="epic" />
+    <if (layout) == 'main'>
 
-</form>
+        <div class="header-wrapper">
+
+            <p class="title">@action-title @</p>
+
+        </div>
+
+    </if>
+
+    <p class="message">
+
+        @action-message @
+
+    </p>
+
+</div>

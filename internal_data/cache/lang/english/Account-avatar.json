@@ -2,5 +2,6 @@
     "form-title": "CHANGE AVATAR",
     "form-avatar": "Change Avatar",
     "form-avatar-desc": "Upload an avatar for your account",
+    "form-avatar-label": "Drag and drop or click to upload files",
     "form-submit-button": "UPLOAD"
 }

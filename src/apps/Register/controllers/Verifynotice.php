@@ -5,7 +5,7 @@ namespace apps\Register;
 class VerifyNotice
 {
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         $mvc->parse_page($mvc->router->get_request_app(), "VerifyNotice", $_POST['layout'], "Register-verifynotice.json", array(
@@ -15,5 +15,3 @@ class VerifyNotice
         ));
     }
 }
-
-$app = new VerifyNotice($this);

@@ -2,7 +2,7 @@
 
 namespace apps\Account;
 
-class App
+class App extends \xframe\Mvc\Page
 {
 
     /** 
@@ -205,7 +205,7 @@ class App
      * 
      */
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         // define vars
@@ -305,5 +305,3 @@ class App
         ));
     }
 }
-
-$app = new App($this);

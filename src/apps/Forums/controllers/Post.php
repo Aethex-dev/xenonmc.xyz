@@ -26,9 +26,9 @@ class Post
         if (empty($input['title'])) {
 
             array_push($errors, 'Please enter a title for your post.');
-        } elseif (strlen($input['title']) > 80 || strlen($input['title']) < 10) {
+        } elseif (strlen($input['title']) > 80 || strlen($input['title']) < 5) {
 
-            array_push($errors, 'Post title must be between 10 and 80 characters long.  Please try again.');
+            array_push($errors, 'Post title must be between 5 and 80 characters long.  Please try again.');
         } else {
 
             $ready['title'] = true;
@@ -38,9 +38,9 @@ class Post
         if (empty($input['post'])) {
 
             array_push($errors, 'Please enter a post body.');
-        } elseif (strlen($input['post']) > 5000 || strlen($input['post']) < 15) {
+        } elseif (strlen($input['post']) > 5000 || strlen($input['post']) < 5) {
 
-            array_push($errors, 'Post body must be between 10 and 5000 characters long.  Please try again.');
+            array_push($errors, 'Post body must be between 5 and 5000 characters long.  Please try again.');
         } else {
 
             $ready['post'] = true;
@@ -56,7 +56,7 @@ class Post
         return false;
     }
 
-    public function __construct($mvc)
+    public function onReady($mvc)
     {
 
         // define vars
@@ -122,11 +122,13 @@ class Post
                             return false;
                         }
 
-                        $id = time() . bin2hex(random_bytes(4));
+                        $id = bin2hex(random_bytes(4));
 
                         $Parsedown = new \Parsedown();
                         $Parsedown->setSafeMode(true);
                         $input['post'] = $Parsedown->text($input['post']);
+
+                        $input['post'] = preg_replace('~\:(.+?)\:~',"<i class='xe-emoji xe-emoji-$1'></i>", $input['post']);
 
                         // data insert
                         $this->db->insert()
@@ -137,7 +139,7 @@ class Post
                                 $auth['topic'] . '/' . $auth['subforum'],
                                 $mvc->global['user_uuid'],
                                 time(),
-                                $input['title'],
+                                str_replace(" ", "-", $input['title']),
                                 '0',
                                 '1',
                                 $input['lock'],
@@ -226,7 +228,7 @@ class Post
                                     ))
                                     ->execute($this->conn);
 
-                                redirect("/forums/thread/" . $auth['topic'] . '/' . $auth['subforum'] . '/' . $id . '/' . $input['title']);
+                                redirect("/forums/thread/" . $auth['topic'] . '/' . $auth['subforum'] . '/' . $id . '/' . str_replace(" ", "-", $input['title']));
 
                                 break;
                             }
@@ -309,5 +311,3 @@ class Post
         }
     }
 }
-
-$app = new Post($this);

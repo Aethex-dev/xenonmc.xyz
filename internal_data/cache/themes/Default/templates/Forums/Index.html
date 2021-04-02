@@ -36,7 +36,7 @@
 
                             <div class="stat">
 
-                                <p class="title"><a href="/forums/thread/{subforum['of']}/{subforum['name']}/{subforum['lastthreadid']}/{subforum['lastthread']}">{subforum['lastthread']}</a></p>
+                                <p class="title"><a href="/forums/thread/{subforum['of']}/{subforum['name']}/{subforum['lastthreadid']}/!!replace ' ', '-', (subforum['lastthread']) !!">{subforum['lastthread']}</a></p>
                                 <p class="value">!!date 'm-d-Y H:i:s', (subforum['lastthreadtime']) !! by: <a href="/users/{subforum['lastmember']}">{subforum['lastmember']}</a></p>
     
                             </div>

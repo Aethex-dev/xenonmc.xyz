@@ -12,7 +12,6 @@ class Controller {
     function __construct($mvc) {
 
         $this->mvc = $mvc;
-
     }
     
 }

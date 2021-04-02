@@ -102,7 +102,7 @@ class Verify
         return false;
     }
 
-    function __construct($mvc)
+    function onReady($mvc)
     {
 
         $this->mvc = $mvc;
@@ -208,5 +208,3 @@ class Verify
         }
     }
 }
-
-$app = new Verify($this);

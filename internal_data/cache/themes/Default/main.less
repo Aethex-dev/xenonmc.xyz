@@ -1,3 +1,8 @@
+@font-face {
+    font-family: LogoFont;
+    src: url(/internal_data/cache/themes/Default/logo.ttf);
+}
+
 // config
 @primaryColor: #55ff55;
 @secondaryColor: #10ba10;
@@ -12,12 +17,15 @@
 @level-8: #333333;
 @level-9: #353535;
 @level-10: #383838;
+@level-11: #454545;
+@level-12: #505050;
+@level-13: #606060;
 @text: #fff;
-@logoFont: sans-serif;
+@logoFont: LogoFont;
 @mainFont: sans-serif;
 
 ::-webkit-scrollbar-thumb {
-    background: @primaryColor;
+    background: linear-gradient(@level-13, @level-13);
 }
 
 ::-webkit-scrollbar-track {
@@ -97,8 +105,8 @@ body {
         flex-direction: row;
         overflow: auto;
         margin-left: 60px;
-        padding-right: 19px;
-        margin-right: 1px;
+        padding-right: 15px;
+        margin-right: 5px;
         height: 100%;
         transition-duration: 300ms;
         
@@ -110,9 +118,11 @@ body {
             font-family: @mainFont;
             font-size: 13px;
             padding: 0px 5px 0px 5px;
-            height: 50px;
+            height: 48px;
             display: flex;
             align-items: center;
+            box-sizing: border-box;
+            border-bottom: 2px solid transparent;
         }
         
         .link:hover {
@@ -138,7 +148,6 @@ body {
     justify-content:space-between;
     overflow: hidden;
     z-index: 100020;
-    border-bottom: 2px solid @level-3;
     transition-duration: 300ms;
     
     ::-webkit-scrollbar {
@@ -186,11 +195,16 @@ body {
             background: @level-6;
         }
 
-        .focused {
+        .button.focused {
             box-shadow: 0px 0px 5px @level-1;
             background: @level-6;
             opacity:100%;
             z-index: 100030;
+        }
+
+        .button.alert {
+            opacity: 100%;
+            color: @primaryColor;
         }
 
         .nofade {
@@ -368,7 +382,12 @@ body {
     }
     
     .main-wrapper {
-        width: 100%;
+        width: calc(100% - 260px);
+
+        @media (max-width: 830px) {
+            width: 100%;
+        }
+
     }
     
     .sidebar-wrapper {
@@ -595,6 +614,7 @@ footer.footer-wrapper {
 .modal-wrapper {
     position: fixed;
     top: 50vh;
+    opacity: 0;
     display: none;
     border-radius: 3px;
     left: 50vw;
@@ -764,9 +784,6 @@ footer.footer-wrapper {
 // ajax loader
 
 .ajaxloader-wrapper {
-    postion: fixed;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 2px;
     z-index: 2000000;
@@ -779,7 +796,7 @@ footer.footer-wrapper {
         opacity: 0;
         height: 2px;
         background: @primaryColor;
-        animation: ajaxloader_load 1.5s ease 0s infinite;
+        animation: ajaxloader_load 2s ease 0s infinite;
         transition-duration: 300ms;
         
         @keyframes ajaxloader_load {
@@ -792,6 +809,17 @@ footer.footer-wrapper {
                 left: 100vw;
             }
             
+        }
+
+        &:after {
+            width: 33%;
+            background: @primaryColor;
+            box-shadow: 0px 0px 10px @primaryColor, 0px 0px 10px @primaryColor;
+            right: 0;
+            top:0;
+            height: 2px;
+            content: '';
+            position: absolute;
         }
         
     }
