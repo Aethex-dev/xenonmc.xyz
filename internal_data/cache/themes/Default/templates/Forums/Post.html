@@ -1,0 +1,112 @@
+<form data-ajax="true" spellcheck="false" autocomplete="off" data-id="post" data-layout="modal" action="%%url_root%%forums/post" class="obj-form-wrapper">
+
+    <input type="hidden" name="topic" value="%%url(2)%%"/>
+    <input type="hidden" name="subforum" value="%%url(3)%%"/>
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@form-title @</p>
+
+        </div>
+
+        </if>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                <span>@form-posttitle @</span>
+                <span class="desc">@form-posttitle-desc @</span>
+
+            </dt>
+
+            <dd class="content">
+
+                <input type="text" name="title" class="text"/>
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title textarea">
+
+                <span>@form-post @</span>
+                <span class="desc">@form-post-desc @</span>
+
+            </dt>
+
+            <dd class="content">
+
+                <div class="textarea">
+
+                    <div class="header-wrapper">
+
+                        <button type="button" class="button">
+
+                            <i class="fal fa-undo"></i>
+
+                        </button>
+
+                        <button type="button" class="button">
+
+                            <i class="fal fa-redo"></i>
+
+                        </button>
+
+                        <button type="button" class="button">
+
+                            <i class="fal fa-clipboard"></i>
+
+                        </button>
+
+                        <button type="button" class="button">
+
+                            <i class="fal fa-smile"></i>
+
+                        </button>
+
+                    </div>
+
+                    <textarea name="post" class="input"></textarea>
+
+                </div>
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                <span>@form-lockpost @</span>
+                <span class="desc">@form-lockpost-desc @</span>
+
+            </dt>
+
+            <dd class="content">
+
+                <label class="check-wrapper">
+
+                    <input name="lock" value="true" class="checkbox" type="checkbox" />
+                    <span class="icon"></span>
+
+                    <span class="label">@form-lockpost-label @</span>
+
+                </label>
+
+            </dd>
+
+        </dl>
+
+        <div class="footer-wrapper sticky">
+
+            <input class="button" type="submit" value="@form-submit-button @" />
+
+        </div>
+
+</form>

@@ -1,0 +1,65 @@
+<div class="obj-forums-wrapper">
+
+    <foreach (topics['name']) as (topic_name)>
+
+        <div class="topic-wrapper">
+
+            <div class="header-wrapper">
+
+                <p class="title">{topic_name}</p>
+
+            </div>
+
+            <foreach (subforums[$topic_name]) as (subforum)>
+
+                <div class="subforum-wrapper">
+
+                    <a href="/forums/threads/!!lower (topic_name) !!/!!lower (subforum['name']) !!" class="title">!!caps (subforum['name']) !!</a>
+
+                    <div class="stats-wrapper">
+
+                        <div class="stat">
+
+                            <p class="title">@subforum-threads @</p>
+                            <p class="value">{subforum['threads']}</p>
+
+                        </div>
+
+                        <div class="stat">
+
+                            <p class="title">@subforum-messages @</p>
+                            <p class="value">{subforum['messages']}</p>
+
+                        </div>
+
+                        <if ^isset (subforum['lastmember']) ^>
+
+                            <div class="stat">
+
+                                <p class="title"><a href="/forums/thread/{subforum['of']}/{subforum['name']}/{subforum['lastthreadid']}/{subforum['lastthread']}">{subforum['lastthread']}</a></p>
+                                <p class="value">!!date 'm-d-Y H:i:s', (subforum['lastthreadtime']) !! by: <a href="/users/{subforum['lastmember']}">{subforum['lastmember']}</a></p>
+    
+                            </div>
+
+                        <else>
+
+                            <div class="stat">
+
+                                <p class="title">@no-posts @</p>
+                                <p class="value">@no-posts-message @</p>
+    
+                            </div>
+
+                        </if>
+
+                    </div>
+
+                </div>
+
+            </foreach>
+
+        </div>
+
+    </foreach>
+
+</div>

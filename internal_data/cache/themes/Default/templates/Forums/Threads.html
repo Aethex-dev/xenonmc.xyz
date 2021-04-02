@@ -1,0 +1,131 @@
+<div class="obj group row space-between align-center">
+
+    <div class="obj-pagei-wrapper">
+
+        <if '%%url(4)%%' !="">
+
+            <if '%%url(4)%%' *greater* (total_pages)>
+
+                <set next_page to (total_pages) />
+
+            <else>
+
+                <set next_page to %%url(4)%% + 1 />
+
+            </if>
+
+            <set prev_page to %%url(4)%% - 1 />
+
+            <if (prev_page) < 1>
+
+                <set prev_page to 1 />
+
+            </if>
+
+            <else>
+
+                <if (total_pages) !=1>
+
+                    <if '%%url(4)%%' *greater* (total_pages)>
+
+                        <set next_page to (total_pages) />
+
+                        <else>
+
+                            <set next_page to %%url(4)%% + 1 />
+
+                    </if>
+
+                <else>
+
+                    <set next_page to 1 />
+
+                </if>
+
+                <set prev_page to 1 />
+
+        </if>
+
+        <a href="/forums/threads/%%url(2)%%/%%url(3)%%/{prev_page}" class="arrow_r"><i class="fal fa-angle-left"></i></a>
+
+        <a href="/forums/threads/%%url(2)%%/%%url(3)%%/1" class="left num">1</a>
+
+        <a href="/forums/threads/%%url(2)%%/%%url(3)%%/2" class="num">2</a>
+
+        <a href="/forums/threads/%%url(2)%%/%%url(3)%%/3" class="num">3</a>
+
+        <a href="/forums/threads/%%url(2)%%/%%url(3)%%/4" class="num">4</a>
+
+        <a href="/forums/threads/%%url(2)%%/%%url(3)%%/5" class="right num">...</a>
+
+        <a href="/forums/threads/%%url(2)%%/%%url(3)%%/{next_page}" class="arrow_l"><i class="fal fa-angle-right"></i></a>
+
+    </div>
+
+    <a href="/forums/post/%%url(2)%%/%%url(3)%%/" class="button">
+
+        @threads-post-thread @
+
+    </a>
+
+</div>
+
+<div class="obj-threads-wrapper">
+
+    <div class="header-wrapper">
+
+        @threads-title @
+
+    </div>
+
+    <foreach (threads) as (thread)>
+
+        <div class="thread-wrapper">
+
+            <a href="/forums/thread/%%url(2)%%/%%url(3)%%/{thread['id']}/{thread['name']}"
+                class="title">{thread['name']}</a>
+
+            <div class="stats-wrapper">
+
+                <div class="stat">
+
+                    <p class="title">
+
+                        <if (thread['locked'])=='true'>
+
+                            <i class="fal fa-lock"></i>
+
+                        </if>
+
+                    </p>
+
+                </div>
+
+                <div class="stat">
+
+                    <p class="title">@threads-replies @</p>
+                    <p class="value">{thread['replies']}</p>
+
+                </div>
+
+                <div class="stat">
+
+                    <p class="title">@threads-views @</p>
+                    <p class="value">{thread['views']}</p>
+
+                </div>
+
+                <div class="stat">
+
+                    <p class="title">!!date 'm-d-Y H:i:s', (thread['createdate']) !!</p>
+                    <p class="value"><a href="/users/{thread['user']}">{thread['user']}</a></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </foreach>
+
+</div>

@@ -1,0 +1,42 @@
+<form data-ajax="true" spellcheck="false" autocomplete="off" data-id="avatar" data-layout="modal" action="%%url_root%%account/avatar" class="obj-form-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@form-title @</p>
+
+        </div>
+
+        </if>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                <span>@form-avatar @</span>
+                <span class="desc">@form-avatar-desc @</span>
+
+            </dt>
+
+            <dd class="content">
+
+                <label class="upload">
+
+                    <input name="avatar" type="file" />
+
+                    Drag and drop files here or click to upload
+
+                </label>
+
+            </dd>
+
+        </dl>
+
+        <div class="footer-wrapper">
+
+            <input class="button" type="submit" value="@form-submit-button @" />
+
+        </div>
+
+</form>

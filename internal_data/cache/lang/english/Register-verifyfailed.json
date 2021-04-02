@@ -1,0 +1,4 @@
+{
+    "action-title": "VERIFY",
+    "action-message": "Failed to verify your account.  Invalid url data.  Either the account is already verified or the url is invalid."
+}

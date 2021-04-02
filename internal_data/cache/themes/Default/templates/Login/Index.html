@@ -1,0 +1,74 @@
+<form data-ajax="true" spellcheck="false" autocomplete="off" data-id="login" data-layout="modal" action="%%url_root%%login" class="obj-form-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@form-title @</p>
+
+        </div>
+
+        </if>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-username-email @
+
+            </dt>
+
+            <dd class="content">
+
+                <input name="username-email" class="text" type="username" />
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-password @
+
+            </dt>
+
+            <dd class="content">
+
+                <input name="password" class="text" type="password" />
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-sli @
+
+            </dt>
+
+            <dd class="content">
+
+                <label class="check-wrapper">
+
+                    <input name="sli" value="true" class="checkbox" type="checkbox" />
+                    <span class="icon"></span>
+
+                    <span class="label">@form-sli-label @</span>
+
+                </label>
+
+            </dd>
+
+        </dl>
+
+        <div class="footer-wrapper">
+
+            <input class="button" type="submit" value="@form-submit-button @" />
+
+        </div>
+
+</form>

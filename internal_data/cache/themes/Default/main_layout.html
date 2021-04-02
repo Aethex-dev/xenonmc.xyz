@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+<!-- head -->
+
+<head>
+
+    <!-- styles -->
+    <link rel="stylesheet/less" type="text/css" href="%%root%%main.less" />
+    <link rel="stylesheet/less" type="text/css" href="%%root%%obj.less" />
+
+    <!-- less.js -->
+    <script>
+        less = {
+
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "comments",
+            relativeUrls: false
+
+        };
+    </script>
+
+    <script src="%%root%%less.js"></script>
+
+    <!-- jquery -->
+    <script src="%%root%%jquery.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <!-- javascript -->
+    <script src="%%root%%main.js"></script>
+    <script class="ajax" src="%%root%%ajax.js"></script>
+
+    <!-- icon pack -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css">
+
+    <!-- prism.js -->
+    <script src="%%root%%lib/prism.js"></script>
+    <link rel="stylesheet" href="%%root%%prism.css" data-noprefix />
+
+    <!-- page meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+
+        <if '%%url(0)%%'=='/'>
+
+            XENONMC
+
+        <else>
+
+            !!caps '%%url(0)%%' !!
+
+        </if>
+
+    </title>
+
+</head>
+
+<!-- body -->
+
+<body>
+
+    <!-- preloader -->
+
+    <div class="preloader-wrapper">
+
+        <div class="loader"></div>
+
+    </div>
+
+    <!--   ajax progress   -->
+
+    <div class="ajaxloader-wrapper">
+
+        <div class="bar"></div>
+
+    </div>
+
+    <!-- navigation -->
+
+    <nav class="navbar-wrapper">
+
+        <div class="group">
+
+            <button class="menu">
+
+                <i class="icon fal fa-bars"></i>
+
+            </button>
+
+            <a class="logo" href="%%url_root%%">
+
+                XENONMC
+
+            </a>
+
+        </div>
+
+        <div class="group">
+
+            <div class="links-wrapper">
+
+                <a class="link" href="%%url_root%%">HOME</a>
+                <a class="link" href="%%url_root%%forums/">FORUMS</a>
+                <a class="link" href="%%url_root%%leaderboards/">LEADERBOARDS</a>
+                <a class="link" href="%%url_root%%downloads/">DOWNLOADS</a>
+                <a class="link" href="%%url_root%%store/">STORE</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <nav class="subnav-wrapper">
+
+        <div class="breadcrumbs-wrapper">
+
+            <a href="/">HOME</a>
+
+            <if (breadcrumbs[0][ 'title']) !='/'>
+
+                <foreach (breadcrumbs) as (breadcrumb)>
+
+                    <i class="fal fa-angle-right arrow"></i>
+                    <a href="{breadcrumb['url']}">!&caps (breadcrumb['title']) &!</a>
+
+                </foreach>
+
+            </if>
+
+        </div>
+
+        <div class="buttons-wrapper">
+
+            <if (loggedIn)==true>
+
+                <button data-modal="true" data-href="%%url_root%%account/menu" class="nofade button">
+
+                    <img draggable="false" class="image" src="data:image/png;base64,{user_avatar}">
+                    <p class="text">{user_username}</p>
+
+                </button>
+
+                <button data-modal="true" data-href="%%url_root%%notifications" class="button">
+
+                    <i class="icon fal fa-bell"></i>
+
+                </button>
+
+                <button data-modal="true" data-href="%%url_root%%conversations" class="button">
+
+                    <i class="icon fal fa-envelope"></i>
+
+                </button>
+
+                <else>
+
+                    <button data-modal="true" data-href="%%url_root%%register" class="button">
+
+                        <i class="icon fal fa-clipboard"></i>
+                        <p class="text">REGISTER</p>
+
+                    </button>
+
+                    <button data-modal="true" data-href="%%url_root%%login" class="button">
+
+                        <i class="icon fal fa-key"></i>
+                        <p class="text">LOGIN</p>
+
+                    </button>
+
+            </if>
+
+            <button data-modal="true" data-href="%%url_root%%search" class="button">
+
+                <i class="icon fal fa-search"></i>
+                <p class="text">SEARCH</p>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+    <div class="sidenav-overlay"></div>
+
+    <div class="sidenav-wrapper">
+
+        <div class="header-wrapper">
+
+            <p class="title">MENU</p>
+
+            <button class="button">
+
+                <i class="icon fal fa-times"></i>
+
+            </button>
+
+        </div>
+
+        <div class="links-wrapper">
+
+            <a class="link" href="#" onclick="navigation.close_sidenav(); modal.open_modal('about');">
+
+                <i class="icon fal fa-house"></i>
+
+                <p class="text">TEST MODAL</p>
+
+            </a>
+
+            <a class="link" href="#" onclick="navigation.close_sidenav(); ajaxloader.show_ajaxloader();">
+
+                <i class="icon fal fa-house"></i>
+
+                <p class="text">Ajax</p>
+
+            </a>
+
+            <a class="link" href="#">
+
+                <i class="icon fal fa-house"></i>
+
+                <p class="text">HOME</p>
+
+            </a>
+
+            <a class="link selected" href="#">
+
+                <i class="icon fal fa-house"></i>
+
+                <p class="text">HOME</p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- javascript -->
+    <script src="%%root%%js/navigation.js"></script>
+
+    <!-- END navigation -->
+
+    <!-- banner -->
+
+    <if '%%url(0)%%'=='/'>
+
+        <div class="banner-wrapper">
+
+            <img class="image" draggable="false" src="%%root%%banner.png">
+
+            <div class="overlay-wrapper"></div>
+
+            <h1 class="logo">XENONMC</h1>
+
+        </div>
+
+    </if>
+
+     <!-- javascript -->
+     <script src="%%root%%js/banner.js"></script>
+
+    <!-- END banner -->
+
+    <!--   content   -->
+
+    <div class="content-wrapper">
+
+        <div class="main-wrapper">
+
+            &&page_content&&
+
+        </div>
+
+        <div class="sidebar-wrapper">
+
+            <div class="block-wrapper">
+
+                <div class="header-wrapper">
+
+                    A BLOCK HEADER
+
+                </div>
+
+                <div class="body-wrapper">
+
+                    some block content
+
+                </div>
+
+            </div>
+
+            <div class="block-wrapper">
+
+                <div class="header-wrapper">
+
+                    A BLOCK HEADER
+
+                </div>
+
+                <div class="body-wrapper">
+
+                    <ul>
+
+                        <li>MEMBERS: 872817387123</li>
+                        <li>BANNED: 872817387123 * 2732</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="block-wrapper">
+
+                <div class="header-wrapper">
+
+                    A BLOCK HEADER
+
+                </div>
+
+                <div class="body-wrapper">
+
+                    <ul>
+
+                        <li>MEMBERS: 872817387123</li>
+                        <li>BANNED: 872817387123 * 2732</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--   END content   -->
+
+    <!--   footer   -->
+
+    <footer class="footer-wrapper">
+
+        <div class="blocks-wrapper">
+
+            <div class="block-wrapper">
+
+                <h1>ABOUT US</h1>
+
+                <p>XENONMC.  Minecraft Minigames Network.  XENONMC is an empowering community pushed to its limits!  We make sure everything is bug-free and that you make the most out of your time here.  We range from custom software to Minecraft Minigames.  And so all in all, we hope you make the most of your time here.</p>
+            </div>
+
+            <div class="block-wrapper">
+
+                <h1>QUICK LINKS</h1>
+
+                <ul class="links-wrapper">
+
+                    <li class="link-wrapper"><a href="/">HOME</a></li>
+                    <li class="link-wrapper"><a href="/forums">FORUMS</a></li>
+                    <li class="link-wrapper"><a href="/leaderboards">LEADERBOARDS</a></li>
+                    <li class="link-wrapper"><a href="/shop">SHOP</a></li>
+                </ul>
+            </div>
+
+            <div class="block-wrapper">
+
+                <h1>USER MENU</h1>
+
+                <ul class="links-wrapper">
+
+                    <li class="link-wrapper"><a data-modal="true" href="/account/menu">USER MENU</a></li>
+                    <li class="link-wrapper"><a data-modal="false" href="/account">SETTINGS</a></li>
+                    <li class="link-wrapper"><a data-modal="false" href="/admin">ADMIN PANEL</a></li>
+                    <li class="link-wrapper"><a data-modal="false" href="/logout/auth/{user_endActionAuth}">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright-wrapper">
+
+            <span>
+
+                <p>COPYRIGHT 2017 - 2021 XENONMC. All Rights Reserved. <a data-modal="true"
+                        href="terms-of-service">Terms Of Service</a>. <a data-modal="true" href="privacy-policy">Privacy
+                        Policy</a>.</p>
+
+            </span>
+        </div>
+    </footer>
+
+    <!--   END footer   -->
+
+    <!-- snackbar -->
+
+    <div class="snackbar-wrapper">
+
+        <span class="text">Undefined</span>
+
+        <button class="button" onclick="snackbar.close_snackbar()">
+
+            <i class="icon fal fa-times"></i>
+
+        </button>
+
+    </div>
+
+     <!-- javascript -->
+     <script src="%%root%%js/snackbar.js"></script>
+
+    <!-- END snackbar -->
+
+    <!--   modal   -->
+
+    <div class="modal-overlay" onclick="modal.close_modal();"></div>
+
+    <div class="modal-wrapper">
+
+        <div class="header-wrapper">
+
+            <span>MODAL</span>
+
+            <button class="button" onclick="modal.close_modal()">
+
+                <i class="icon fal fa-times"></i>
+
+            </button>
+
+        </div>
+
+        <div class="body-wrapper"></div>
+
+    </div>
+
+    <div class="emodal-overlay" onclick="emodal.close_modal();"></div>
+
+    <div class="emodal-wrapper">
+
+        <div class="header-wrapper">
+
+            <span>ERROR</span>
+
+            <button class="button" onclick="emodal.close_modal()">
+
+                <i class="icon fal fa-times"></i>
+
+            </button>
+
+        </div>
+
+        <div class="body-wrapper"></div>
+
+    </div>
+
+    <!-- javascript -->
+    <script src="%%root%%js/modal.js"></script>
+
+    <!-- END modal -->
+
+    <!--   device too small   -->
+
+    <div class="smallerror-wrapper">
+
+        <p>Sorry, but your device is too small to view this page properly</p>
+
+    <div>
+
+    <!-- END device too small -->
+
+</body>
+
+</html>

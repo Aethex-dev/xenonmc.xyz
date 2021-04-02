@@ -1,0 +1,31 @@
+<form method="POST" spellcheck="false" autocomplete="off" action="%%url_root%%search/query" class="obj-form-wrapper">
+
+    <input type="hidden" name="id" value="search"/>
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@form-title @</p>
+        </div>
+    </if>
+
+    <dl class="row-wrapper">
+
+        <dt class="title">
+
+             <span>@form-search @</span>
+             <span class="desc">@form-search-desc @</span>
+        </dt>
+
+        <dd class="content">
+
+            <input name="query" class="text" type="text" />
+        </dd>
+    </dl>
+
+    <div class="footer-wrapper">
+
+        <input class="button" type="submit" value="@form-submit-button @" />
+    </div>
+</form>

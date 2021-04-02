@@ -1,0 +1,74 @@
+<form data-ajax="true" spellcheck="false" autocomplete="off" data-id="register" data-layout="modal" action="%%url_root%%register" class="obj-form-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@form-title @</p>
+
+        </div>
+
+        </if>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-username @
+
+            </dt>
+
+            <dd class="content">
+
+                <input name="username" class="text" type="username" />
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-email @
+
+            </dt>
+
+            <dd class="content">
+
+                <input name="email" class="text" type="email" />
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-tos @
+
+            </dt>
+
+            <dd class="content">
+
+                <label class="check-wrapper">
+
+                    <input name="terms-of-service" value="true" class="checkbox" type="checkbox" />
+                    <span class="icon"></span>
+
+                    <span class="label">@form-tos-label @</span>
+
+                </label>
+
+            </dd>
+
+        </dl>
+
+        <div class="footer-wrapper">
+
+            <input class="button" type="submit" value="@form-submit-button @" />
+
+        </div>
+
+</form>

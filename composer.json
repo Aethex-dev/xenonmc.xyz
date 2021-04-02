@@ -1,0 +1,28 @@
+{
+    "name": "xenonmc/xframe",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "XENONMC",
+            "email": "support@xenonmc.xyz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src"
+        }
+    },
+    "require": {
+        "cboden/ratchet": "dev-master",
+        "hbattat/verifyemail": "dev-master",
+        "xframe/router": "dev-main",
+        "hhxsv5/php-sse": "~2.0",
+        "xframe/mvc": "dev-main",
+        "xframe/database": "dev-main",
+        "xframe/cache": "dev-main",
+        "erusev/parsedown": "dev-master",
+        "phpmailer/phpmailer": "dev-master"
+    }
+}

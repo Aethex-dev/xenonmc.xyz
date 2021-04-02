@@ -1,0 +1,69 @@
+<div class="obj-menu-wrapper">
+
+    <if (layout)=='main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">
+
+                USER MENU
+
+            </p>
+
+        </div>
+
+    </if>
+
+    <div class="top-wrapper">
+
+        <div class="image-wrapper">
+
+            <img draggable="false" src="data:image/png;base64,{user_avatar}">
+
+        </div>
+
+        <div class="group">
+
+            <a href="%%url_root%%users/{user_username}" class="link h1">{user_username}</a>
+
+            <p class="small text">Joined: !!date 'm-d-Y', (user_joined) !!</p>
+
+            <p class="small text">Reputation: {user_rep['reputation']}</p>
+
+            <p class="small text">Messages: {user_rep['messages']}</p>
+
+            <p class="small text">Threads: {user_rep['threads']}</p>
+
+        </div>
+
+    </div>
+
+    <div class="bottom-wrapper">
+
+        <a href="%%url_root%%users/{user_username}" class="button">
+
+            <p class="text">PROFILE</p>
+
+        </a>
+
+        <a href="" class="button">
+
+            <p class="text">PREFERENCES</p>
+
+        </a>
+
+        <a href="%%url_root%%account/avatar" class="button">
+
+            <p class="text">CHANGE AVATAR</p>
+
+        </a>
+
+        <a href="%%url_root%%logout/auth/{user_endActionAuth}" class="button">
+
+            <p class="text">LOGOUT</p>
+
+        </a>
+
+    </div>
+
+</div>

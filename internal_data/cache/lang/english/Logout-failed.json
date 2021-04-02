@@ -1,0 +1,4 @@
+{
+    "action-title": "LOGOUT",
+    "action-message": "Failed to log you out.  Invalid authentication.  Please reload the page and try again."
+}

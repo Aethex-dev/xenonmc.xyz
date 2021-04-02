@@ -1,0 +1,19 @@
+{
+    "form-title": "ACCOUNT",
+    "form-change-about": "About You",
+    "form-change-about-desc": "Help people get to know you better",
+    "form-change-avatar": "Avatar",
+    "form-change-avatar-label": "Click to upload or drag and drop your avatar here",
+    "form-change-avatar-desc": "Change your account avatar",
+    "form-change-username-label": "Username",
+    "form-change-username-desc": "Change your account's username",
+    "form-change-email-label": "Email Address",
+    "form-change-email-desc": "Change your account's email address",
+    "form-submit-button": "SAVE",
+    "error-new-username-empty": "Your new username cannot be empty.  Please enter a username and try again.",
+    "error-username-wrong-length": "Your new username must be between 3 and 14 characters long.  Please remove or add characters to the username and try again",
+    "error-username-exists": "An account with that username already exists.  Please choose another username and try again.",
+    "error-invalid-email": "The address email entered is invalid.  Please enter a valid email address and try again.",
+    "error-email-exists": "An account with that email address already exists.  Please enter another email address and try again.",
+    "error-email-empty": "Your new email address cannot be empty.  Please enter an email address and try again."
+}

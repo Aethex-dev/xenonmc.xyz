@@ -1,0 +1,18 @@
+{
+    "thread-locked-notice": "This thread was locked and is not open for further replies.",
+    "thread-author-locked-notice": "This this was locked for all members except you.",
+    "reply-title": "REPLY",
+    "reply": "REPLY",
+    "replies": "REPLIES",
+    "reply-message": "REPLY",
+    "reply-message-desc": "Reply to this thread",
+    "reply-attach": "ATTACH FILES",
+    "reply-attach-desc": "Attach files to this thread",
+    "reply-attach-label": "Click or drag and drop files to upload",
+    "reply-submit-button": "REPLY",
+    "error-reply-not-logged-in": "You must be logged in to your account to reply to a thread.  Please login and try again.",
+    "error-empty-reply": "Reply message cannot be empty.  Please enter a message and try again.",
+    "error-reply-bad-length": "Your reply must be between 15 and 5000 characters long.  Please add or remove to your reply and try again.",
+    "error-reply-attachments-too-large": "Your attachments must be under 16mb large.  Please remove some files and try again.",
+    "error-thread-locked": "Sorry, but this thread is not accepting further replies."
+}

@@ -1,0 +1,225 @@
+<if (thread['locked']) == 'true'>
+
+<div class="obj-notice-wrapper info">
+
+    <if (author_viewing_thread) == true>
+
+        <p class="text">
+
+            @thread-author-locked-notice @
+    
+        </p>
+
+    <else>
+
+        <p class="text">
+
+            @thread-locked-notice @
+    
+        </p>
+
+    </if>
+
+</div>
+
+</if>
+
+<div class="obj-thread-page">
+
+    <if (layout)=='main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">{thread['name']}</p>
+
+            <if (thread[ 'locked'])=='true'>
+
+                <i class="icon fal fa-lock"></i>
+
+            </if>
+
+            <p class="value">!!date 'm-d-Y H:i:s', (thread['createdate']) !!</p>
+
+        </div>
+
+    </if>
+
+    <div class="post-wrapper">
+
+        <div class="user">
+
+            <img class="avatar" draggable="false" src="data:image/png;base64,{user['avatar']}" />
+
+            <a data-modal="true" href="/users/{user['username']}" class="username">{user['username']}</a>
+
+            <div class="rank" style="background: {user['rank']['color']}30; color: {user['rank']['color']}">
+
+                {user['rank']['name']}
+
+            </div>
+
+        </div>
+
+        <div class="text markdown">{thread['data']}</div>
+
+    </div>
+
+    <div class="footer-wrapper">
+
+        <button class="button">
+
+            LIKE
+
+        </button>
+
+    </div>
+
+    <p class="replies_label">
+
+        {replies_total}
+
+        <if (replies_total)==1>
+
+            @reply @
+
+            <else>
+
+                @replies @
+
+        </if>
+
+    </p>
+
+    <div class="replies-wrapper">
+
+        <foreach (replies) as (reply)>
+
+            <div class="reply-wrapper">
+
+                <div class="header-wrapper">
+
+                    <p class="value">!!date 'm-d-Y H:i:s', (reply['createdate']) !!</p>
+
+                </div>
+
+                <div class="content">
+
+                    <div class="replier">
+
+                        <img class="avatar" draggable="false" src="data:image/png;base64,{reply['user']['avatar']}" />
+
+                        <a data-modal="true" href="/users/{reply['user']['username']}" class="username">{reply['user']['username']}</a>
+
+                        <div class="rank" style="background: {reply['user']['rank']['color']}30; color: {reply['user']['rank']['color']}">
+
+                            {reply['user']['rank']['name']}
+
+                        </div>
+
+                    </div>
+
+                    <div class="text markdown">{reply['data']}</div>
+
+                </div>
+
+            </div>
+
+        </foreach>
+
+    </div>
+
+</div>
+
+<form data-ajax="true" spellcheck="false" autocomplete="off" data-id="reply" data-layout="modal" action="%%url_root%%forums/thread/" class="obj-form-wrapper">
+
+    <input type="hidden" name="topic" value="%%url(2)%%" />
+    <input type="hidden" name="subforum" value="%%url(3)%%" />
+    <input type="hidden" name="thread_id" value="%%url(4)%%" />
+    <input type="hidden" name="thread_name" value="%%url(5)%%" />
+
+    <div class="header-wrapper">
+
+        <p class="title">@reply-title @</p>
+
+    </div>
+
+    <dl class="row-wrapper">
+
+        <dt class="title textarea">
+
+                <span>@reply-message @</span>
+                <span class="desc">@reply-message-desc @</span>
+
+            </dt>
+
+        <dd class="content">
+
+            <div class="textarea">
+
+                <div class="header-wrapper">
+
+                    <button type="button" class="button">
+
+                            <i class="fal fa-undo"></i>
+
+                        </button>
+
+                    <button type="button" class="button">
+
+                            <i class="fal fa-redo"></i>
+
+                        </button>
+
+                    <button type="button" class="button">
+
+                            <i class="fal fa-clipboard"></i>
+
+                        </button>
+
+                    <button type="button" class="button">
+
+                            <i class="fal fa-smile"></i>
+
+                        </button>
+
+                </div>
+
+                <textarea name="reply" class="input"></textarea>
+
+            </div>
+
+        </dd>
+
+    </dl>
+
+    <dl class="row-wrapper">
+
+        <dt class="title">
+
+                <span>@reply-attach @</span>
+                <span class="desc">@reply-attach-desc @</span>
+
+            </dt>
+
+        <dd class="content">
+
+            <label class="upload">
+
+                    <input name="attachments[]" type="file" multiple/>
+
+                    @reply-attach-label @
+
+                </label>
+
+        </dd>
+
+    </dl>
+
+    <div class="footer-wrapper sticky">
+
+        <input class="button" type="submit" value="@reply-submit-button @" />
+
+    </div>
+
+</form>
+</form>

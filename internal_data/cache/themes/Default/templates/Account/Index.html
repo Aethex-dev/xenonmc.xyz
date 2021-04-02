@@ -1,0 +1,112 @@
+<form data-ajax="true" spellcheck="false" autocomplete="off" data-id="settings" data-layout="modal" action="%%url_root%%account" class="obj-form-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@form-title @</p>
+
+        </div>
+
+        </if>
+
+        <foreach (settings) as (setting)>
+
+            <dl class="row-wrapper">
+
+                <dt class="title">
+    
+                    <span>{setting['title']}</span>
+                    <span class="desc">{setting['desc']}</span>
+    
+                </dt>
+    
+                <dd class="content">
+    
+                    <input name="{setting['name']}" class="text" value="{setting['value']}" type="{setting['type']}" />
+    
+                </dd>
+    
+            </dl>
+
+        </foreach>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                <span>@form-change-avatar @</span>
+                <span class="desc">@form-change-avatar-desc @</span>
+
+            </dt>
+
+            <dd class="content">
+
+                <label class="upload">
+
+                    <input name="avatar" type="file" />
+
+                    @form-change-avatar-label @
+
+                </label>
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title textarea">
+
+                <span>@form-change-about @</span>
+                <span class="desc">@form-change-about-desc @</span>
+
+            </dt>
+
+            <dd class="content">
+
+                <div class="textarea wysiwyg">
+
+                    <div class="header-wrapper">
+
+                        <button type="button" class="button undo">
+
+                            <i class="fal fa-undo"></i>
+
+                        </button>
+
+                        <button type="button" class="button redo">
+
+                            <i class="fal fa-redo"></i>
+
+                        </button>
+
+                        <button type="button" class="button copy">
+
+                            <i class="fal fa-clipboard"></i>
+
+                        </button>
+
+                        <button type="button" class="button emojies">
+
+                            <i class="fal fa-smile"></i>
+
+                        </button>
+
+                    </div>
+
+                    <textarea name="change-about" class="input"></textarea>
+
+                </div>
+
+            </dd>
+
+        </dl>
+
+        <div class="footer-wrapper sticky">
+
+            <button class="button" type="submit">@form-submit-button @</button>
+
+        </div>
+
+</form>

@@ -1,0 +1,11 @@
+{
+    "form-title": "POST THREAD",
+    "form-submit-button": "POST",
+    "form-posttitle": "TITLE",
+    "form-posttitle-desc": "The name for your post",
+    "form-post": "POST",
+    "form-post-desc": "Post body content",
+    "form-lockpost": "Lock Thread",
+    "form-lockpost-label": "Lock This Thread",
+    "form-lockpost-desc": "Lock this thread post from replies"
+}

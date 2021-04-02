@@ -1,6 +1,0 @@
-Disallow: *
-Allow: /tools/
-Allow: index.html
-Allow: sitemap.xml
-
-Sitemap: https://xenonmc.xyz/sitemap.xml

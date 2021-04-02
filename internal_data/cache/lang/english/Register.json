@@ -1,0 +1,8 @@
+{
+    "form-title": "REGISTER",
+    "form-username": "Username",
+    "form-email": "Email Address",
+    "form-submit-button": "CREATE",
+    "form-tos": "Terms Of Service",
+    "form-tos-label": "Please accept the ##link %%url_root%%support/terms-of-service * Terms of Service ## and the ##link %%url_root%%support/privacy-policy * Privacy Policy ##"
+}

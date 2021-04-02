@@ -1,0 +1,56 @@
+<form data-ajax="true" data-id="verify" data-layout="modal" action="%%url_root%%register/verify" class="obj-form-wrapper">
+
+    <if (layout) == 'main'>
+
+        <div class="header-wrapper">
+
+            <p class="title">@form-title @</p>
+
+        </div>
+
+        </if>
+
+        <input type="hidden" value="%%url(2)%%" name="token1"/>
+        <input type="hidden" value="%%url(3)%%" name="token2"/>
+        <input type="hidden" value="%%url(4)%%" name="token3"/>
+        <input type="hidden" value="%%url(5)%%" name="user"/>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-password @
+
+            </dt>
+
+            <dd class="content">
+
+                <input name="password" class="text" type="password" />
+
+            </dd>
+
+        </dl>
+
+        <dl class="row-wrapper">
+
+            <dt class="title">
+
+                @form-cpassword @
+
+            </dt>
+
+            <dd class="content">
+
+                <input name="cpassword" class="text" type="password" />
+
+            </dd>
+
+        </dl>
+
+        <div class="footer-wrapper">
+
+            <input class="button" type="submit" value="@form-submit-button @" />
+
+        </div>
+
+</form>
